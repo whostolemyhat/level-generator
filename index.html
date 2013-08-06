@@ -23,30 +23,49 @@
     
         <div class="container">
             <h1>Random Level Generator</h1>
-            <p>From                 <a href="http://gamedev.tutsplus.com/tutorials/implementation/cave-levels-cellular-automata/" title="Gamedev tuts random gen tutorial">Gamedev Tuts</a>, based on <a href='http://twitter.com/McFunkypants' title="McFunkyPants on Twitter">@McFunkypants</a>' 
+            <p>From <a href="http://gamedev.tutsplus.com/tutorials/implementation/cave-levels-cellular-automata/" title="Gamedev tuts random gen tutorial">
+                Gamedev Tuts</a>, based on 
+                <a href='http://twitter.com/McFunkypants' title="McFunkyPants on Twitter">@McFunkypants</a>' 
                 <a href="http://jsfiddle.net/McFunkypants/h99wy/" title="Random World Generator">Random World Generator</a>. 
-                </p>
+            </p>
             <div class="controls">
                 <ul>
-                    <li><a href="#" id="newWorld">New World</a></li>
-                    <li><a href="#" id="placeTreasure">Place Treasure</a></li>
-                    <li><a href="#" id="simulateStep">Simulate Step (smooth)</a></li>
-                    <li><a href="#" id="export">Export Map</a></li>
+                    <li><a href="#" id="export" class="button big positive">Export Map</a></li>
+
+                    <li><a href="#" id="newWorld" class="button">New World</a></li>
+                    <li><a href="#" id="placeTreasure" class="button">Place Treasure</a></li>
+                    <li><a href="#" id="simulateStep" class="button">Smooth Map</a></li>
                 </ul>
 
                 <form action="#" method="post" id="values">
-                    <label for="birthLimit">Birth Limit</label>
-                    <input type="number" name="birthLimit" id="birthLimit" min="1" max="6" value="4">
-                    <label for="deathLimit">Death Limit</label>
-                    <input type="number" name="deathLimit" id="deathLimit" min="1" max="6" value="3">
-                    <label for="initialChance">Initial Chance</label>
-                    <input type="number" name="initialChance" id="initialChance" min="0" max="1" value="0.4" step="0.1">
-                    <label for="numberSteps">Number of steps</label>
-                    <input type="number" name="numberSteps" id="numberSteps" min="0" max="6" value="2">
-                    <label for="mapWidth">Width</label>
-                    <input type="number" value="64" min="12" max="128" name="mapWidth" id="mapWidth" step="2">
-                    <label for="mapHeight">Height</label>
-                    <input type="number" name="mapHeight" id="mapHeight" value="48" min="12" max="128" step="2">
+                    <fieldset>
+                        <input type="radio" name="islandToggle" id="caves" value="caves" checked="checked">
+                        <label for="caves" class="radio">Caves</label>
+                        <input type="radio" name="islandToggle" id="islands" value="islands">
+                        <label for="islands" class="radio">Islands</label>
+                    </fieldset>
+                    <fieldset>
+                        <h2>Map size</h2>
+                        <label for="mapWidth">Map Width</label>
+                        <input type="number" value="64" min="12" max="128" name="mapWidth" id="mapWidth" step="2">
+                        <label for="mapHeight">Map Height</label>
+                        <input type="number" name="mapHeight" id="mapHeight" value="48" min="12" max="128" step="2">
+                    </fieldset>
+
+                    <fieldset>
+                        <h2>Generation variables</h2>
+                        <label for="birthLimit">Birth Limit</label>
+                        <input type="number" name="birthLimit" id="birthLimit" min="1" max="6" value="4">
+                        <label for="deathLimit">Death Limit</label>
+                        <input type="number" name="deathLimit" id="deathLimit" min="1" max="6" value="3">
+                        <label for="initialChance">Initial Chance</label>
+                        <input type="number" name="initialChance" id="initialChance" min="0" max="1" value="0.4" step="0.1">
+                        <label for="numberSteps">Number of steps</label>
+                        <input type="number" name="numberSteps" id="numberSteps" min="0" max="6" value="2">
+                    </fieldset>
+                   
+                    
+                    
                 </form>
             </div>
             

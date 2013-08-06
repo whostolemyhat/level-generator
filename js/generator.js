@@ -1,12 +1,19 @@
-var world = [[]];
-
-var worldWidth = 64;
-var worldHeight= 48;
-
+// Visual - won't affect map output
 var tileWidth = 8;
 var tileHeight = 8;
 var canvas;
 var world;
+var lightColour = '#3355aa';
+var darkColour = '#433';
+var landColour = '#90be7d';
+var seaColour = '#81c6ed';
+var treasureColour = '#f1d437';
+
+// map variables
+var world = [[]];
+var worldWidth = 64;
+var worldHeight= 48;
+var drawIslands = false;
 
 // game of life variables
 var chanceToStartAlive = 0.4;
@@ -30,14 +37,32 @@ function iterate() {
 }
 
 function recreate(form) {
-    // expects array of 4 objects (key:value pairs)
-
+    // expects array of objects (key:value pairs)
     birthLimit = form['birthLimit'];
     deathLimit = form['deathLimit'];
     chanceToStartAlive = form['initialSteps'];
     numberOfSteps = form['numberSteps'];
+    worldWidth = form['mapWidth'] || worldWidth;
+    worldHeight = form['mapHeight'] || worldHeight;
+    if(form['islandToggle'] === 'islands') {
+        drawIslands = true;
+    } else {
+        drawIslands = false;
+    }
+
+    canvas.width = worldWidth * tileWidth;
+    canvas.height = worldHeight * tileHeight;
 
     world = generateMap();
+    redraw();
+}
+
+function toggleIslands(form) {
+    if(form['islandToggle'] === 'islands') {
+        drawIslands = true;
+    } else {
+        drawIslands = false;
+    }
     redraw();
 }
 
@@ -142,14 +167,27 @@ function redraw() {
 
     for(var x = 0; x < worldWidth; x++) {
         for(var y = 0; y < worldHeight; y++) {
-            if(world[x][y] === 0) {
-                ctx.fillStyle = '#3355aa';
-            } else if(world[x][y] === 2) {
-                ctx.fillStyle = '#f1d437';
-            } else {
-                ctx.fillStyle = '#433';
-            }
 
+            if(world[x][y] === 0) {
+                if(drawIslands) {
+                    // land
+                    ctx.fillStyle = landColour;
+                } else {
+                    // empty cave
+                    ctx.fillStyle = lightColour;
+                }
+            } else if(world[x][y] === 2) {
+                ctx.fillStyle = treasureColour;
+            } else {
+                if(drawIslands) {
+                    // sea
+                    ctx.fillStyle = seaColour;
+                } else {
+                    // cave wall
+                    ctx.fillStyle = darkColour;
+                }
+            }
+            
             ctx.fillRect(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
         }
     }

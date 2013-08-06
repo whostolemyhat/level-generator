@@ -9,7 +9,10 @@ $(document).ready(function() {
             birthLimit: $('#birthLimit').val(),
             deathLimit: $('#deathLimit').val(),
             initialSteps: $('#initialChance').val(),
-            numberSteps: $('#numberSteps').val()
+            numberSteps: $('#numberSteps').val(),
+            mapWidth: $('#mapWidth').val(),
+            mapHeight: $('#mapHeight').val(),
+            islandToggle: $('#values input[type="radio"]:checked').val()
         }); 
     });
     $('#simulateStep').click(function() {
@@ -21,6 +24,11 @@ $(document).ready(function() {
     $('#export').click(function() {
         exportMap();
     });
+    $('#values input[type="radio"]').change(function() {
+        redraw({
+            islandToggle: $('#values input[type="radio"]:checked').val()
+        });
+    })
 
     init();
 

@@ -1,6 +1,6 @@
 // Visual - won't affect map output
-var tileWidth = 8;
-var tileHeight = 8;
+var tileWidth = 10;
+var tileHeight = 10;
 var canvas;
 var world;
 var lightColour = '#3355aa';
@@ -193,6 +193,6 @@ function redraw() {
     }
 }
 
-function exportMap() {
-    console.log(world);
+function exportMap(world) {
+    console.log(JSON.stringify(world));
 }

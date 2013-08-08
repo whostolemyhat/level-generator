@@ -1,0 +1,59 @@
+@import "foundation";
+
+body {
+    color: #191818;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 1em
+}
+
+/* buttons */
+.controls ul, .controls li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    padding: .5em;
+    text-align: center;
+    background: blue;
+    color: white;
+    text-decoration: none;
+    margin-bottom: .5em;
+}
+
+.positive {
+    background: green;
+}
+
+.big {
+    font-size: 1.2em;
+}
+
+/* forms */
+label {
+    font-weight: bold;
+    display: block;
+}
+
+.radio {
+    display: inline-block;
+    margin: 0 .5em 0 .25em;
+}
+
+input {
+    margin: .25em 0 .5em;
+}
+
+form h2 {
+    margin: 0 0 .25em;
+}
+
+fieldset {
+    border: none;
+}

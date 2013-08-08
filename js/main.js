@@ -25,7 +25,7 @@ $(document).ready(function() {
         exportMap();
     });
     $('#values input[type="radio"]').change(function() {
-        redraw({
+        toggleIslands({
             islandToggle: $('#values input[type="radio"]:checked').val()
         });
     })

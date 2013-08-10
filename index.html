@@ -6,8 +6,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
+        <title>Random Map Generator</title>
+        <meta name="description" content="Random map generator - create random map and export it to JSON for use in Javascript/HTML games">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -20,43 +20,52 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    
+        <div class="container">
+            
+
         <div class="row title">
             <div class="large-12 columns">
-                <h1>Random Level Generator</h1>
-                <p>From <a href="http://gamedev.tutsplus.com/tutorials/implementation/cave-levels-cellular-automata/" title="Gamedev tuts random gen tutorial">
-                    Gamedev Tuts</a>, based on 
+                <h1>Random Map Generator</h1>
+                
+                <p>Create a randomly-generated map and export it as JSON for use in Javascript (or any other) games.</p>
+                <p>Based on <a href="http://gamedev.tutsplus.com/tutorials/implementation/cave-levels-cellular-automata/" title="Gamedev tuts random gen tutorial">
+                    Gamedev Tuts</a> and
                     <a href='http://twitter.com/McFunkypants' title="McFunkyPants on Twitter">@McFunkypants</a>' 
                     <a href="http://jsfiddle.net/McFunkypants/h99wy/" title="Random World Generator">Random World Generator</a>. 
+                    <a href="https://github.com/whostolemyhat/level-generator" alt="Repository on Github">Code on Github.</a>
                 </p>
             </div>
-        </div>
-                <div class="controls large-3 columns">
-                    <ul>
-                        <li><a href="#" id="export" class="button big positive">Export Map</a></li>
+           
+            <div class="row">
+                <ul class="controls large-12 columns">
+                    <li><a href="#" id="export" class="button positive">Export Map</a></li>
+                    <li><a href="#" id="newWorld" class="button">New World</a></li>
+                    <li><a href="#" id="placeTreasure" class="button">Place Treasure</a></li>
+                    <li><a href="#" id="simulateStep" class="button">Smooth Map</a></li>
+                    <li><a href="#" id="options-trigger" class="button" title="Map generation options">Map Options &raquo;</a></li>
+                </ul>
+            </div>
 
-                        <li><a href="#" id="newWorld" class="button">New World</a></li>
-                        <li><a href="#" id="placeTreasure" class="button">Place Treasure</a></li>
-                        <li><a href="#" id="simulateStep" class="button">Smooth Map</a></li>
-                    </ul>
+            <div class="row">
+                <form action="#" method="post" id="values" class="large-7 large-centered columns">
 
-                    <form action="#" method="post" id="values">
+                    <div class="large-6 columns">
                         <fieldset>
+                            <h2>Map options</h2>
+                            <label for="mapWidth">Map Width</label>
+                            <input type="number" value="64" min="12" max="128" name="mapWidth" id="mapWidth" step="2">
+                            <label for="mapHeight">Map Height</label>
+                            <input type="number" name="mapHeight" id="mapHeight" value="48" min="12" max="128" step="2">
                             <input type="radio" name="islandToggle" id="caves" value="caves" checked="checked">
                             <label for="caves" class="radio">Caves</label>
                             <input type="radio" name="islandToggle" id="islands" value="islands">
                             <label for="islands" class="radio">Islands</label>
                         </fieldset>
-                        <fieldset>
-                            <h2>Map size</h2>
-                            <label for="mapWidth">Map Width</label>
-                            <input type="number" value="64" min="12" max="128" name="mapWidth" id="mapWidth" step="2">
-                            <label for="mapHeight">Map Height</label>
-                            <input type="number" name="mapHeight" id="mapHeight" value="48" min="12" max="128" step="2">
-                        </fieldset>
+                    </div>
 
+                    <div class="large-6 columns">
                         <fieldset>
-                            <h2>Generation variables</h2>
+                            <h2>Generation options</h2>
                             <label for="birthLimit">Birth Limit</label>
                             <input type="number" name="birthLimit" id="birthLimit" min="1" max="6" value="4">
                             <label for="deathLimit">Death Limit</label>
@@ -65,16 +74,18 @@
                             <input type="number" name="initialChance" id="initialChance" min="0" max="1" value="0.4" step="0.1">
                             <label for="numberSteps">Number of steps</label>
                             <input type="number" name="numberSteps" id="numberSteps" min="0" max="6" value="2">
-                        </fieldset>
-                       
-                        
-                        
-                    </form>
-                </div>
+                        </fieldset> 
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
                 
-                <div class="large-9 columns">
-                    <canvas id="canvas">Your browser doesn't support canvas</canvas>
-                </div>
+    <div class="large-12 columns canvas-wrapper">
+        <canvas id="canvas">Your browser doesn't support canvas</canvas>
+    </div>
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

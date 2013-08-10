@@ -1121,71 +1121,156 @@ th.hide-for-touch {
   display: table-cell !important;
 }
 
-/* line 3, ../sass/main.scss */
-body {
-  color: #191818;
-}
-
 /* line 7, ../sass/main.scss */
 .title {
   text-align: center;
   margin-bottom: 1em;
 }
 
+/* line 12, ../sass/main.scss */
+canvas {
+  margin: auto;
+}
+
+/* line 16, ../sass/main.scss */
+.canvas-wrapper {
+  text-align: center;
+}
+
+/* line 20, ../sass/main.scss */
+.container {
+  padding: .5em;
+  background-color: #e6f3fe;
+  margin-bottom: 1em;
+  border-bottom: 2px solid #51a7fb;
+  border-top: 2px solid #51a7fb;
+}
+
 /* buttons */
-/* line 13, ../sass/main.scss */
+/* line 29, ../sass/main.scss */
 .controls ul, .controls li {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 19, ../sass/main.scss */
+/* line 35, ../sass/main.scss */
 .button {
   display: block;
-  width: 100%;
+  float: left;
+  width: 19%;
+  margin-left: 1%;
   padding: .5em;
   text-align: center;
-  background: blue;
+  background-color: #3096fa;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF3096FA', endColorstr='#FF057DF2');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3096fa), color-stop(100%, #057df2));
+  background-image: -webkit-linear-gradient(top, #3096fa 0%, #057df2 100%);
+  background-image: -moz-linear-gradient(top, #3096fa 0%, #057df2 100%);
+  background-image: -o-linear-gradient(top, #3096fa 0%, #057df2 100%);
+  background-image: linear-gradient(top, #3096fa 0%, #057df2 100%);
+  border-top: 1px solid #51a7fb;
+  border-bottom: 1px solid #0463c0;
   color: white;
   text-decoration: none;
-  margin-bottom: .5em;
+  border-radius: 3px;
+}
+/* line 53, ../sass/main.scss */
+.button:hover {
+  background-color: #3096fa;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF057DF2', endColorstr='#FF3096FA');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #057df2), color-stop(100%, #3096fa));
+  background-image: -webkit-linear-gradient(top, #057df2 0%, #3096fa 100%);
+  background-image: -moz-linear-gradient(top, #057df2 0%, #3096fa 100%);
+  background-image: -o-linear-gradient(top, #057df2 0%, #3096fa 100%);
+  background-image: linear-gradient(top, #057df2 0%, #3096fa 100%);
 }
 
-/* line 30, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 .positive {
-  background: green;
+  background-color: #21bb2a;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF21BB2A', endColorstr='#FF199020');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #21bb2a), color-stop(100%, #199020));
+  background-image: -webkit-linear-gradient(top, #21bb2a 0%, #199020 100%);
+  background-image: -moz-linear-gradient(top, #21bb2a 0%, #199020 100%);
+  background-image: -o-linear-gradient(top, #21bb2a 0%, #199020 100%);
+  background-image: linear-gradient(top, #21bb2a 0%, #199020 100%);
+  border-bottom: 1px solid #14731a;
+  border-top: 1px solid #34db3e;
+  width: 20%;
+  margin: 0;
+}
+/* line 69, ../sass/main.scss */
+.positive:hover {
+  background-color: #21bb2a;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF199020', endColorstr='#FF21BB2A');
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #199020), color-stop(100%, #21bb2a));
+  background-image: -webkit-linear-gradient(top, #199020 0%, #21bb2a 100%);
+  background-image: -moz-linear-gradient(top, #199020 0%, #21bb2a 100%);
+  background-image: -o-linear-gradient(top, #199020 0%, #21bb2a 100%);
+  background-image: linear-gradient(top, #199020 0%, #21bb2a 100%);
 }
 
-/* line 34, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
 .big {
   font-size: 1.2em;
 }
 
+/* line 80, ../sass/main.scss */
+#values {
+  display: none;
+}
+
 /* forms */
-/* line 39, ../sass/main.scss */
+/* line 85, ../sass/main.scss */
 label {
-  font-weight: bold;
+  display: block;
+  color: #515151;
+  text-align: left;
+}
+
+/* line 91, ../sass/main.scss */
+input {
+  margin: .25em 0 .5em;
   display: block;
 }
 
-/* line 44, ../sass/main.scss */
+/* line 95, ../sass/main.scss */
+input[type="radio"] {
+  display: inline;
+}
+
+/* line 98, ../sass/main.scss */
 .radio {
   display: inline-block;
   margin: 0 .5em 0 .25em;
 }
 
-/* line 49, ../sass/main.scss */
-input {
-  margin: .25em 0 .5em;
-}
-
-/* line 53, ../sass/main.scss */
+/* line 103, ../sass/main.scss */
 form h2 {
-  margin: 0 0 .25em;
+  margin: .25em 0 .5em;
+  text-align: left;
 }
 
-/* line 57, ../sass/main.scss */
+/* line 108, ../sass/main.scss */
 fieldset {
-  border: none;
+  border: 0;
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+/* line 114, ../sass/main.scss */
+#output {
+  position: absolute;
+  display: none;
+  top: 0;
+  width: 50%;
+}
+/* line 120, ../sass/main.scss */
+#output code {
+  overflow: scroll;
 }

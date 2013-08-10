@@ -193,6 +193,3 @@ function redraw() {
     }
 }
 
-function exportMap(world) {
-    console.log(JSON.stringify(world));
-}

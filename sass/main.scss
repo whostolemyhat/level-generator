@@ -1,12 +1,28 @@
 @import "foundation";
+@import "compass";
 
 body {
-    color: #191818;
 }
 
 .title {
     text-align: center;
     margin-bottom: 1em
+}
+
+canvas {
+    margin: auto;
+}
+
+.canvas-wrapper {
+    text-align: center;
+}
+
+.container {
+    padding: .5em;
+    background-color: #e6f3fe;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #51a7fb;
+    border-top: 2px solid #51a7fb;
 }
 
 /* buttons */
@@ -18,42 +34,90 @@ body {
 
 .button {
     display: block;
-    width: 100%;
+    float: left;
+    width: 19%;
+    margin-left: 1%;
     padding: .5em;
     text-align: center;
-    background: blue;
+    background-color: #3096fa;
+    @include filter-gradient(#3096fa, #057df2, vertical);
+    @include background-image(linear-gradient(top,  #3096fa 0%,#057df2 100%));
+    border-top: 1px solid #51a7fb;
+    border-bottom: 1px solid #0463c0;
+
     color: white;
     text-decoration: none;
-    margin-bottom: .5em;
+    // margin: 0 5% .5em 0;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: #3096fa;
+        @include filter-gradient(#057df2, #3096fa, vertical);
+        @include background-image(linear-gradient(top, #057df2 0%, #3096fa 100%));
+    }
 }
 
 .positive {
-    background: green;
+    background-color: #21bb2a;
+    @include filter-gradient(#21bb2a, #199020, vertical);
+    @include background-image(linear-gradient(top,  #21bb2a 0%,#199020 100%));
+    border-bottom: 1px solid #14731a;
+    border-top: 1px solid #34db3e;
+    width: 20%;
+    margin: 0;
+
+    &:hover {
+        background-color: #21bb2a;
+        @include filter-gradient(#199020, #21bb2a, vertical);
+        @include background-image(linear-gradient(top, #199020 0%, #21bb2a 100%));
+    }
 }
 
 .big {
     font-size: 1.2em;
 }
 
-/* forms */
-label {
-    font-weight: bold;
-    display: block;
+#values {
+    display: none;
 }
 
+/* forms */
+label {
+    display: block;
+    color: #515151;
+    text-align: left;
+}
+
+input {
+    margin: .25em 0 .5em;
+    display: block;
+}
+input[type="radio"] {
+    display: inline;
+}
 .radio {
     display: inline-block;
     margin: 0 .5em 0 .25em;
 }
 
-input {
-    margin: .25em 0 .5em;
-}
-
 form h2 {
-    margin: 0 0 .25em;
+    margin: .25em 0 .5em;
+    text-align: left;
 }
 
 fieldset {
-    border: none;
+    border: 0;
+    margin-bottom: 1em;
+    text-align: left;
+}
+
+#output {
+    position: absolute;
+    display: none;
+    top: 0;
+    width: 50%;
+    
+    code {
+        overflow: scroll;
+    }
 }

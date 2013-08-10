@@ -30,6 +30,18 @@ $(document).ready(function() {
         });
     })
 
+    $('#options-trigger').click(function(e) {
+        e.preventDefault();
+        $('#values').slideToggle();
+        $(this).toggleClass('active');
+    });
+
     init();
 
 });
+
+function exportMap() {
+    console.log(JSON.stringify(world));
+    var output = $('<div id="output"><pre><code>' + JSON.stringify(world) + '</code></pre></div>');
+    output.appendTo('body').slideDown();
+}

@@ -20,6 +20,7 @@ $(document).ready(function() {
     });
     $('#placeTreasure').click(function() {
         placeTreasure();
+        redraw();
     });
     $('#export').click(function() {
         exportMap();
@@ -41,7 +42,13 @@ $(document).ready(function() {
 });
 
 function exportMap() {
-    console.log(JSON.stringify(world));
-    var output = $('<div id="output"><pre><code>' + JSON.stringify(world) + '</code></pre></div>');
-    output.appendTo('body').slideDown();
+    // console.log(JSON.stringify(world));
+    var outputText = '<p>Copy and paste the following and save as a JSON file.</p><code><pre>' + JSON.stringify(world) + '</pre></code>';
+    var output;
+    if($('#output').length > 0) {
+        output = $('#output');
+    } else {
+        output = $('<div id="output" />').appendTo('body');
+    }
+    output.html(outputText).modal();
 }

@@ -61,16 +61,18 @@ function toggleIslands(form) {
 
 function placeTreasure() {
     var treasureHiddenLimit = 5;
-    for(var x = 0; x < Generator.worldWidth; x++) {
-        for( var y = 0; y < Generator.worldHeight; y++) {
-            if(world[x][y] === 0) {
-                var nbs = Generator.countAliveNeighbours(world, x, y);
-                if(nbs >= treasureHiddenLimit) {
-                    world[x][y] = 2;
-                }
-            }
-        }
-    }
+
+    Generator.placeTreasure(treasureHiddenLimit);
+    // for(var x = 0; x < Generator.worldWidth; x++) {
+    //     for( var y = 0; y < Generator.worldHeight; y++) {
+    //         if(world[x][y] === 0) {
+    //             var nbs = Generator.countAliveNeighbours(world, x, y);
+    //             if(nbs >= treasureHiddenLimit) {
+    //                 world[x][y] = 2;
+    //             }
+    //         }
+    //     }
+    // }
 
     redraw();
 }

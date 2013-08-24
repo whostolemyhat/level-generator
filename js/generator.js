@@ -83,5 +83,18 @@ var Generator = {
         }
 
         return count;
+    },
+
+    placeTreasure: function(limit) {
+        for(var x = 0; x < this.worldWidth; x++) {
+            for( var y = 0; y < this.worldHeight; y++) {
+                if(world[x][y] === 0) {
+                    var nbs = this.countAliveNeighbours(world, x, y);
+                    if(nbs >= limit) {
+                        world[x][y] = 2;
+                    }
+                }
+            }
+        }
     }
 }

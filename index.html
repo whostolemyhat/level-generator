@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Random Map Generator</title>
+        <meta name="description" content="Random map generator - create random map and export it to JSON for use in Javascript/HTML games">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="container">
+            
+
+        <div class="row title">
+            <div class="large-12 columns">
+                <h1>Random Map Generator</h1>
+                
+                <p>Create a randomly-generated map and export it as JSON for use in Javascript (or any other) games.</p>
+                <p>Based on <a href="http://gamedev.tutsplus.com/tutorials/implementation/cave-levels-cellular-automata/" title="Gamedev tuts random gen tutorial">
+                    Gamedev Tuts</a> and
+                    <a href='http://twitter.com/McFunkypants' title="McFunkyPants on Twitter">@McFunkypants</a>' 
+                    <a href="http://jsfiddle.net/McFunkypants/h99wy/" title="Random World Generator">Random World Generator</a>. 
+                    <a href="https://github.com/whostolemyhat/level-generator" alt="Repository on Github">Code on Github.</a>
+                </p>
+            </div>
+           
+            <div class="row">
+                <ul class="controls large-12 columns">
+                    <li><a href="#" id="export" class="button positive">Export Map</a></li>
+                    <li><a href="#" id="newWorld" class="button">New World</a></li>
+                    <li><a href="#" id="placeTreasure" class="button">Place Treasure</a></li>
+                    <li><a href="#" id="simulateStep" class="button">Smooth Map</a></li>
+                    <li><a href="#" id="options-trigger" class="button" title="Map generation options">Map Options &raquo;</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <form action="#" method="post" id="values" class="large-7 large-centered columns">
+
+                    <div class="large-6 columns">
+                        <fieldset>
+                            <h2>Map options</h2>
+                            <label for="mapWidth">Map Width</label>
+                            <input type="number" value="64" min="12" max="128" name="mapWidth" id="mapWidth" step="2">
+                            <label for="mapHeight">Map Height</label>
+                            <input type="number" name="mapHeight" id="mapHeight" value="48" min="12" max="128" step="2">
+                            <input type="radio" name="islandToggle" id="caves" value="caves" checked="checked">
+                            <label for="caves" class="radio">Caves</label>
+                            <input type="radio" name="islandToggle" id="islands" value="islands">
+                            <label for="islands" class="radio">Islands</label>
+                        </fieldset>
+                    </div>
+
+                    <div class="large-6 columns">
+                        <fieldset>
+                            <h2>Generation options</h2>
+                            <label for="birthLimit">Birth Limit</label>
+                            <input type="number" name="birthLimit" id="birthLimit" min="1" max="6" value="4">
+                            <label for="deathLimit">Death Limit</label>
+                            <input type="number" name="deathLimit" id="deathLimit" min="1" max="6" value="3">
+                            <label for="initialChance">Initial Chance</label>
+                            <input type="number" name="initialChance" id="initialChance" min="0" max="1" value="0.4" step="0.1">
+                            <label for="numberSteps">Number of steps</label>
+                            <input type="number" name="numberSteps" id="numberSteps" min="0" max="6" value="2">
+                        </fieldset> 
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+                
+    <div class="large-12 columns canvas-wrapper">
+        <canvas id="canvas">Your browser doesn't support canvas</canvas>
+    </div>
+
+
+        <!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/Generator.js"></script>
+        <script src="js/drawing.js"></script>
+        <script src="js/main.js"></script>
+        
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            // (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            // function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            // e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            // e.src='//www.google-analytics.com/analytics.js';
+            // r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            // ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
